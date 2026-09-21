@@ -1,0 +1,708 @@
+:root{
+  --ink:#332b27;
+  --paper:#f5ead5;
+  --pink:#d8a6b4;
+  --green:#bbc5a6;
+  --yellow:#ead480;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  color:var(--ink);
+  font-family:"DM Sans",sans-serif;
+
+  background:
+    linear-gradient(
+      rgba(255,255,255,.48),
+      rgba(255,255,255,.48)
+    ),
+    repeating-linear-gradient(
+      0deg,
+      #efe9dd 0,
+      #efe9dd 27px,
+      #d9d7cc 28px,
+      #efe9dd 29px
+    );
+}
+
+
+/* CABECERA */
+
+.hero{
+  padding:
+  36px 18px 24px;
+}
+
+.paper{
+  max-width:1050px;
+
+  margin:auto;
+
+  background:
+  var(--paper);
+
+  padding:
+  36px 30px;
+
+  position:relative;
+
+  border:
+  1px solid rgba(50,40,30,.12);
+
+  box-shadow:
+  0 8px 25px rgba(40,30,20,.08);
+}
+
+.paper::before,
+.paper::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:115px;
+
+  height:27px;
+
+  top:-12px;
+
+  background:
+  rgba(216,166,180,.7);
+
+}
+
+.paper::before{
+
+  left:8%;
+
+  transform:
+  rotate(-5deg);
+
+}
+
+.paper::after{
+
+  right:8%;
+
+  transform:
+  rotate(5deg);
+
+}
+
+
+.kicker{
+
+  margin:0;
+
+  font-family:
+  "Patrick Hand",cursive;
+
+  font-size:
+  clamp(20px,2.5vw,28px);
+
+  letter-spacing:
+  .06em;
+
+}
+
+
+h1{
+
+  font-family:
+  "Patrick Hand",cursive;
+
+  font-size:
+  clamp(42px,7vw,82px);
+
+  line-height:
+  .95;
+
+  max-width:
+  900px;
+
+  margin:
+  12px 0 18px;
+
+}
+
+
+.intro{
+
+  font-size:
+  clamp(17px,2vw,21px);
+
+}
+
+
+.buttons{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:12px;
+
+  margin-top:
+  26px;
+
+}
+
+
+.vote,
+.secondary{
+
+  min-height:
+  48px;
+
+  padding:
+  13px 20px;
+
+  display:
+  inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-weight:
+  700;
+
+  text-decoration:
+  none;
+
+}
+
+
+.vote{
+
+  background:
+  var(--pink);
+
+  color:
+  #241b1d;
+
+  border:
+  2px solid #241b1d;
+
+  transform:
+  rotate(-1deg);
+
+}
+
+
+.secondary{
+
+  color:
+  var(--ink);
+
+  border:
+  2px dashed var(--ink);
+
+  background:
+  rgba(255,255,255,.55);
+
+}
+
+
+.small{
+
+  margin-top:
+  18px;
+
+  font-family:
+  "Patrick Hand",cursive;
+
+  font-size:
+  19px;
+
+}
+
+
+/* SECCIONES */
+
+main section{
+
+  max-width:
+  1180px;
+
+  margin:auto;
+
+  padding:
+  28px 18px 40px;
+
+}
+
+
+.section-title{
+
+  margin-bottom:
+  20px;
+
+}
+
+
+.section-title > span{
+
+  display:
+  inline-block;
+
+  background:
+  var(--pink);
+
+  padding:
+  8px 15px;
+
+  font-family:
+  "Patrick Hand",cursive;
+
+  font-size:
+  22px;
+
+  transform:
+  rotate(-1deg);
+
+}
+
+
+.section-title > .green{
+
+  background:
+  var(--green);
+
+}
+
+
+.section-title h2{
+
+  font-family:
+  "Patrick Hand",cursive;
+
+  font-size:
+  42px;
+
+  margin:
+  15px 0 4px;
+
+}
+
+
+.section-title p{
+
+  max-width:
+  760px;
+
+  line-height:
+  1.55;
+
+}
+
+
+/* GALERÍA */
+
+.gallery{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(4,minmax(0,1fr));
+
+  gap:
+  18px;
+
+}
+
+
+.card{
+
+  background:
+  #fffaf0;
+
+  padding:
+  9px 9px 12px;
+
+  border:
+  1px solid rgba(60,45,35,.15);
+
+  box-shadow:
+  0 5px 15px rgba(50,35,25,.08);
+
+}
+
+
+.card:nth-child(4n + 1){
+
+  transform:
+  rotate(-.35deg);
+
+}
+
+
+.card:nth-child(4n + 3){
+
+  transform:
+  rotate(.3deg);
+
+}
+
+
+.photo{
+
+  width:
+  100%;
+
+  aspect-ratio:
+  4 / 5;
+
+  padding:0;
+
+  border:0;
+
+  background:
+  #ece8df;
+
+  overflow:hidden;
+
+  cursor:
+  zoom-in;
+
+}
+
+
+.photo img{
+
+  display:block;
+
+  width:
+  100%;
+
+  height:
+  100%;
+
+  object-fit:
+  contain;
+
+}
+
+
+.photo.missing{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:
+  15px;
+
+  border:
+  1px dashed #86776b;
+
+  color:
+  #78695f;
+
+}
+
+
+.info{
+
+  display:flex;
+
+  gap:
+  9px;
+
+  align-items:
+  baseline;
+
+  padding:
+  11px 3px 2px;
+
+}
+
+
+.info strong{
+
+  font-family:
+  "Patrick Hand",cursive;
+
+  font-size:
+  27px;
+
+  background:
+  var(--yellow);
+
+  padding:
+  0 6px;
+
+  line-height:
+  1;
+
+}
+
+
+.info span{
+
+  font-weight:
+  600;
+
+  overflow-wrap:
+  anywhere;
+
+}
+
+
+.club-card .info strong{
+
+  background:
+  var(--green);
+
+}
+
+
+/* FINAL */
+
+.final{
+
+  padding-top:
+  5px;
+
+  padding-bottom:
+  50px;
+
+}
+
+
+.final-paper{
+
+  text-align:
+  center;
+
+  max-width:
+  720px;
+
+}
+
+
+.final-title{
+
+  margin:
+  0 0 20px;
+
+  font-family:
+  "Patrick Hand",cursive;
+
+  font-size:
+  38px;
+
+}
+
+
+/* PIE */
+
+footer{
+
+  text-align:center;
+
+  padding:
+  22px 15px;
+
+  font-size:
+  14px;
+
+  color:
+  #70655d;
+
+}
+
+
+/* VISOR DE FOTO */
+
+dialog{
+
+  border:0;
+
+  padding:
+  12px;
+
+  background:
+  #171717;
+
+  color:white;
+
+  max-width:
+  min(92vw,850px);
+
+  max-height:
+  92%;
+
+}
+
+
+dialog::backdrop{
+
+  background:
+  rgba(0,0,0,.8);
+
+}
+
+
+dialog img{
+
+  display:block;
+
+  max-width:
+  100%;
+
+  max-height:
+  78vh;
+
+  margin:auto;
+
+  object-fit:
+  contain;
+
+}
+
+
+#close{
+
+  position:absolute;
+
+  top:
+  8px;
+
+  right:
+  8px;
+
+  width:
+  44px;
+
+  height:
+  44px;
+
+  border:0;
+
+  border-radius:
+  50%;
+
+  background:
+  rgba(0,0,0,.75);
+
+  color:white;
+
+  font-size:
+  30px;
+
+  cursor:pointer;
+
+}
+
+
+#caption{
+
+  text-align:center;
+
+  margin:
+  10px 0 2px;
+
+  font-weight:
+  600;
+
+}
+
+
+/* TABLET */
+
+@media(max-width:900px){
+
+  .gallery{
+
+    grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  }
+
+}
+
+
+/* MÓVIL */
+
+@media(max-width:650px){
+
+  .hero{
+
+    padding-top:
+    24px;
+
+  }
+
+  .paper{
+
+    padding:
+    29px 18px;
+
+  }
+
+  .gallery{
+
+    grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+    gap:
+    12px;
+
+  }
+
+  .card{
+
+    padding:
+    7px 7px 10px;
+
+  }
+
+  .info{
+
+    display:block;
+
+  }
+
+  .info strong{
+
+    display:
+    inline-block;
+
+    margin-bottom:
+    5px;
+
+  }
+
+  .info span{
+
+    display:block;
+
+    font-size:
+    14px;
+
+  }
+
+}
+
+
+@media(max-width:350px){
+
+  .gallery{
+
+    grid-template-columns:
+    1fr;
+
+  }
+
+}

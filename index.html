@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Día Mundial Alboranista 2026</title>
+  <meta name="description" content="Galería oficial del Día Mundial Alboranista 2026.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="hero">
+
+  <div class="paper">
+
+    <span class="tape-top"></span>
+
+    <p class="kicker">
+      DÍA MUNDIAL ALBORANISTA 2026
+    </p>
+
+    <h1>
+      42 formas de decir que eres alboranista sin decirlo
+    </h1>
+
+    <p class="intro">
+      Descubre todas las propuestas y elige tu favorita.
+    </p>
+
+    <div class="buttons">
+
+      <a
+        class="vote"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSec6Q5TnYFq4zaMJlANygOyyYJHV7wfA73KKT4x3p_kUOykBQ/viewform?usp=publish-editor"
+        target="_blank">
+        VOTA AQUÍ ♥
+      </a>
+
+      <a class="secondary" href="#galeria">
+        VER PROPUESTAS
+      </a>
+
+    </div>
+
+    <p class="small">
+      Votación popular abierta durante 24 horas.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+<section id="galeria">
+
+  <div class="section-title">
+    <span>PROPUESTAS 01–42</span>
+
+    <p>
+      Pulsa sobre cualquier imagen para verla más grande.
+      Después podrás votar usando su número.
+    </p>
+  </div>
+
+  <div id="gallery" class="gallery"></div>
+
+</section>
+
+
+<section class="clubs">
+
+  <div class="section-title">
+
+    <span class="green">
+      CLUBES DE FANS
+    </span>
+
+    <h2>
+      Participaciones especiales
+    </h2>
+
+    <p>
+      Estas propuestas forman parte del DMA 2026 y optan
+      al reconocimiento especial para clubes de fans.
+      No participan en la votación popular.
+    </p>
+
+  </div>
+
+  <div id="clubsGallery" class="gallery club-gallery"></div>
+
+</section>
+
+
+<section class="final">
+
+  <div class="paper final-paper">
+
+    <p class="final-title">
+      ¿Ya viste las 42?
+    </p>
+
+    <a
+      class="vote"
+      href="https://docs.google.com/forms/d/e/1FAIpQLSec6Q5TnYFq4zaMJlANygOyyYJHV7wfA73KKT4x3p_kUOykBQ/viewform?usp=publish-editor"
+      target="_blank">
+      ELIGE TU FAVORITA ♥
+    </a>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer>
+  DMA 2026 · “Dime que eres alboranista sin decir que eres alboranista”
+</footer>
+
+
+<dialog id="lightbox">
+
+  <button id="close" aria-label="Cerrar">
+    ×
+  </button>
+
+  <img id="bigImage" alt="">
+
+  <p id="caption"></p>
+
+</dialog>
+
+
+<script src="data.js"></script>
+
+<script>
+
+const gallery =
+document.getElementById("gallery");
+
+const clubsGallery =
+document.getElementById("clubsGallery");
+
+const dialog =
+document.getElementById("lightbox");
+
+const bigImage =
+document.getElementById("bigImage");
+
+const caption =
+document.getElementById("caption");
+
+
+function createCard(item){
+
+  const card =
+  document.createElement("article");
+
+  card.className =
+  item.club ? "card club-card" : "card";
+
+
+  const button =
+  document.createElement("button");
+
+  button.className = "photo";
+
+  button.type = "button";
+
+
+  const img =
+  document.createElement("img");
+
+  img.src =
+  `images/${item.id}.jpg`;
+
+  img.alt =
+  `Propuesta ${item.id} de ${item.name}`;
+
+  img.loading =
+  "lazy";
+
+
+  img.onerror = () => {
+
+    button.innerHTML =
+    `<span>Falta ${item.id}.jpg</span>`;
+
+    button.classList.add("missing");
+
+  };
+
+
+  button.appendChild(img);
+
+
+  button.onclick = () => {
+
+    if(button.classList.contains("missing")){
+      return;
+    }
+
+    bigImage.src = img.src;
+
+    caption.textContent =
+    `${item.id} · ${item.name}`;
+
+    dialog.showModal();
+
+  };
+
+
+  const info =
+  document.createElement("div");
+
+  info.className = "info";
+
+  info.innerHTML = `
+    <strong>${item.id}</strong>
+    <span>${item.name}</span>
+  `;
+
+
+  card.appendChild(button);
+
+  card.appendChild(info);
+
+  return card;
+
+}
+
+
+PARTICIPANTS.forEach(item => {
+
+  if(item.club){
+
+    clubsGallery.appendChild(
+      createCard(item)
+    );
+
+  }else{
+
+    gallery.appendChild(
+      createCard(item)
+    );
+
+  }
+
+});
+
+
+document
+.getElementById("close")
+.onclick = () => {
+  dialog.close();
+};
+
+
+dialog.addEventListener(
+"click",
+event => {
+
+  if(event.target === dialog){
+    dialog.close();
+  }
+
+});
+
+</script>
+
+</body>
+</html>
