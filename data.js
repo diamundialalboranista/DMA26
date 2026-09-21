@@ -42,7 +42,6 @@ const PARTICIPANTS = [
   {id:'41',name:'Camila Llerena',club:false},
   {id:'42',name:'Raquel Gómez',club:false},
   {id:'43',name:'Novias Alborán Argentina',club:true},
-  {id:'44',name:'Club de fans Ecuador',club:true}
-];
+  {id:'44',name:'Club de fans Ecuador',club:true},
   {id:'45',name:'Familia Alborán Argentina Rosario',club:true}
 ];
